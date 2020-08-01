@@ -3,6 +3,7 @@ import { Row, Col, Form, Button, Spinner } from "react-bootstrap";
 import { values, size } from "lodash";
 import { toast } from "react-toastify"
 import { isEmailValid } from "../../utils/validations"
+import { signUpApi } from "../../api/auth";
 
 import "./SignUpForm.scss";
 
@@ -30,8 +31,23 @@ export default function SignUpForm(props) {
       } else if (size(formData.password) < 6) {
         toast.warning("La contraseña tiene que tener al menos 6 caracteres");
       } else {
+        setSignUpLoading(true)
         toast.success("Form OK")
-  
+        signUpApi(formData).then(response => {
+          if(response.code) {
+            toast.warning(response.message)
+          } else {
+            toast.success("El  registro ha sido correcto")
+            setShowModal(false);
+            setFormData(initialFormValue())
+          }
+        })
+        .catch(() => {
+          toast.error("Error del servidor intentelo mas tarde")
+        })
+        .finally(() => {
+          setSignUpLoading(false)
+        })
       }
     }
   }
@@ -49,16 +65,16 @@ export default function SignUpForm(props) {
               <Form.Control
                 type="text"
                 placeholder="Nombre"
-                name="nombre"
-                defaultValue={formData.nombre}
+                name="name"
+                defaultValue={formData.name}
               />
             </Col>
             <Col>
               <Form.Control
                 type="text"
                 placeholder="Apellidos"
-                name="apellidos"
-                defaultValue={formData.apellidos}
+                name="surname"
+                defaultValue={formData.surname}
               />
             </Col>
           </Row>
@@ -102,8 +118,8 @@ export default function SignUpForm(props) {
 
 function initialFormValue() {
   return {
-    nombre: "",
-    apellidos: "",
+    name: "",
+    surname: "",
     email: "",
     password: "",
     repeatPassword: ""
