@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import BasicModal from "../../components/Modal/BasicModal";
 import SignUpForm from "../../components/SignUpForm";
+import SignInForm from "../../components/SignInForm"
 import LogoTwittor from "../../assets/png/logo.png";
 import LogoWhiteTwittor from "../../assets/png/logo-white.png";
 
@@ -73,7 +74,7 @@ function RightComponent(props) {
       <div>
         <img src={LogoWhiteTwittor} alt="Twittor" />
         <h2>Mira lo que está pasando en el mundo en este momento</h2>
-        <h3>Únete a Twittor hot mimso.</h3>
+        <h3>Únete a Twittor hoy mismo.</h3>
         <Button
           variant="primary"
           onClick={() => openModal(<SignUpForm setShowModal={setShowModal} />)}
@@ -82,12 +83,7 @@ function RightComponent(props) {
         </Button>
         <Button
           variant="outline-primary"
-          onClick={() =>
-            openModal(
-              
-            )
-          }
-        >
+          onClick={() => openModal( <SignInForm />)}>
           Iniciar sesión
         </Button>
       </div>
