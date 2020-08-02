@@ -1,4 +1,5 @@
 import { API_HOST, TOKEN } from "../utils/constant";
+import JwtDecode from "jwt-decode";
 
 export function signUpApi(user) {
     
@@ -65,4 +66,34 @@ export function signInApi(user) {
 
 export function setTokenApi(token) {
     localStorage.setItem(TOKEN, token)
+}
+
+export function getTokenApi() {
+    return localStorage.getItem(TOKEN)
+}
+export function logoutApi() {
+    localStorage.removeItem(TOKEN)
+}
+
+export function isUserLogedApi() {
+    const token = getTokenApi()
+
+    if (!token) {
+        logoutApi()
+        return null
+    }
+    if (isExpired(token)) {
+        logoutApi()
+    }
+    return JwtDecode(token)
+}
+
+function isExpired(token) {
+    const { exp } = JwtDecode(token)
+    const expire = exp * 1000
+    const timeout = expire - Date.now()
+    if(timeout < 0) {
+        return true
+    }
+    return false
 }
