@@ -1,10 +1,16 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react'
+import BasicLayout from "../../layouts/BasicLayout";
 
 import "./Home.scss";
-export default function Home() {
+export default function Home(props) {
+    const {setRefreshCheckLogin} = props
+    
     return (
-        <div>
-            <h2>Home</h2>
-        </div>
+    
+        <BasicLayout className="home" setRefreshCheckLogin={setRefreshCheckLogin}>
+         <h2>Home 😀🐪</h2>
+        </BasicLayout>
+   
     )
 }
