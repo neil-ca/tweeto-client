@@ -83,7 +83,7 @@ function RightComponent(props) {
         </Button>
         <Button
           variant="outline-primary"
-          onClick={() => openModal( <SignInForm />)}>
+          onClick={() => openModal( <SignInForm setRefreshCheckLogin={setRefreshCheckLogin}/>)}>
           Iniciar sesión
         </Button>
       </div>
