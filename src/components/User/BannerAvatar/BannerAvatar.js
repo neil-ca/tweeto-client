@@ -4,6 +4,7 @@ import { API_HOST } from "../../../utils/constant";
 import { Button } from "react-bootstrap";
 import ConfigModal from "../../Modal/ConfigModal"
 import "./BannerAvatar.scss"
+import  EditUserForm  from "../EditUserForm";
 
 export default function BannerAvatar(props) {
 
@@ -28,7 +29,7 @@ export default function BannerAvatar(props) {
             </div>
         )}
         <ConfigModal show={showModal} setShow={setshowModal} title="Editar perfil">
-            Form...
+            <EditUserForm user ={user} setshowModal={setshowModal}/>
         </ConfigModal>
         </div>
     )
