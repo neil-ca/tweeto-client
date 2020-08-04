@@ -5,6 +5,8 @@ import BasicLayout from "../../layouts/BasicLayout"
 import { getUserApi } from "../../api/user";
 import { toast } from "react-toastify";
 import BannerAvatar  from "../../components/User/BannerAvatar";
+import useAuth from "../../hooks/useAuth"
+import InfoUser  from "../../components/User/InfoUser";
 
 import "./User.scss"
 
@@ -13,6 +15,7 @@ function User(props) {
     const {match} = props
     const [user, setuser] = useState(null)
     const {params} = match
+    const loggedUser = useAuth()
 
     useEffect(() => {
         getUserApi(params.id).then(response => {
@@ -29,8 +32,8 @@ function User(props) {
             <h2>
                 {user ? `${user.name} ${user.surname}` : "Este usuario no existe"}</h2>
             </div>
-            <BannerAvatar user={user}/>
-            <div>Info User</div>
+            <BannerAvatar user={user} loggedUser={loggedUser}/>
+            <InfoUser user ={user}/>
             <div className="user__tweets">List of tweets</div>
         </BasicLayout>
     )
