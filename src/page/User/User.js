@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-// eslint-disable-next-line no-unused-vars
 import { Button, Spinner } from "react-bootstrap";
 import {withRouter} from "react-router-dom"
 import BasicLayout from "../../layouts/BasicLayout"
@@ -18,6 +17,8 @@ function User(props) {
     const {match} = props
     const [user, setuser] = useState(null)
     const [tweets, setTweets] = useState(null)
+    const [page, setPage] = useState(1)
+    const [loadingTweets, setLoadingTweets] = useState(false)
     const {params} = match
     const loggedUser = useAuth()
 
@@ -38,6 +39,20 @@ function User(props) {
             setTweets([])
         })
     }, [params])
+
+    const moreData = () => {
+        const pageTemp = page + 1
+        setLoadingTweets(true)
+        getUserTweetsApi(params.id, pageTemp).then(response => {
+            if(!response) {
+                setLoadingTweets(0)
+            }else {
+                setTweets([...tweets, ...response])
+                setPage(pageTemp)
+                setLoadingTweets(false)
+            }
+        })
+    }
     return (
         <BasicLayout className="user">
             <div className="user__title">
@@ -47,7 +62,16 @@ function User(props) {
             <BannerAvatar user={user} loggedUser={loggedUser}/>
             <InfoUser user ={user}/>
             <div className="user__tweets">
+                <h3>Tweets</h3>
                 {tweets && <ListTweets tweets={tweets}/>}
+                <Button onClick={moreData}>
+                    {!loadingTweets ? (
+                        loadingTweets !== 0 && 'Obtener mas Tweets'
+                    ) : (
+                        <Spinner as="span" animation="grow" size="sm" 
+                        role="status" aria-hidden="true"/>
+                    )}
+                </Button>
             </div>
         </BasicLayout>
     )
