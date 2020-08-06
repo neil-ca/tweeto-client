@@ -44,3 +44,20 @@ export function unFollowUserApi(idUser) {
         return result
     }).catch(err => {return err})
 }
+
+export function getFollowsApi(paramsUrl) {
+    const url = `${API_HOST}/list-users?${paramsUrl}`
+
+    const params = {
+        headers: {
+        Authorization: `Bearer ${getTokenApi()}`,
+    }
+}
+return fetch(url, params).then(response => {
+    return response
+}).then(result => {
+    return result;
+}).catch((err) => {
+    return err
+})
+}
