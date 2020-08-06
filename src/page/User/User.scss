@@ -11,6 +11,12 @@
             margin-bottom: 0;
             font-weight: bold;
         }
-
+    }
+    &__tweets {
+        h3 {
+            padding: 15px;
+            font-size: 18px;
+            border-bottom: 1px solid $border-grey;
+        }
     }
 }

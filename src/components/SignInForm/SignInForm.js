@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Spinner } from "react-bootstrap";
 import { values, size } from "lodash";
+// eslint-disable-next-line no-unused-vars
 import { Toast, toast } from "react-toastify";
 import { isEmailValid } from "../../utils/validations";
 import { signInApi, setTokenApi } from "../../api/auth";

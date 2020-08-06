@@ -11,6 +11,7 @@ export function getUserApi(id) {
         }
     }
     return fetch(url, params).then(response => {
+        // eslint-disable-next-line no-throw-literal
         if(response.status >= 400) throw null
         return response.json()
     })
