@@ -23,8 +23,6 @@ function Tweet(props) {
     const { tweet } = props
     const [userInfo, setUserInfo] = useState(null)
     const [avatarUrl, setAvatarUrl] = useState(null)
-    console.log(userInfo);
-    console.log(avatarUrl);
     useEffect(() => {
         getUserApi(tweet.userId).then(response => {
             setUserInfo(response)
