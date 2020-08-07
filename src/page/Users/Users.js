@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState, useEffect } from "react";
 import { Spinner, ButtonGroup, Button } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
