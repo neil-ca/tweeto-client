@@ -14,6 +14,7 @@ function Users(props) {
   const [users, setUsers] = useState(null);
   const params = useUsersQuery(location);
   const [typeUser, setTypeUser] = useState(params.type || "follow");
+  const [btnLoading, setBtnLoading] = useState(false);
   const [onSearch] = useDebouncedCallback((value) => {
     setUsers(null);
     history.push({
@@ -23,10 +24,19 @@ function Users(props) {
   useEffect(() => {
     getFollowsApi(queryString.stringify(params))
       .then((response) => {
-        if (isEmpty(response)) {
-          setUsers([]);
+        if (params.page == 1) {
+          if (isEmpty(response)) {
+            setUsers([]);
+          } else {
+            setUsers(response);
+          }
         } else {
-          setUsers(response);
+          if (!response) {
+            setBtnLoading(0);
+          } else {
+            setUsers([...users, ...response]);
+            setBtnLoading(false);
+          }
         }
       })
       .catch(() => {
@@ -44,6 +54,13 @@ function Users(props) {
     }
     history.push({
       search: queryString.stringify({ type: type, page: 1, search: "" }),
+    });
+  };
+  const moreData = () => {
+    setBtnLoading(true);
+    const newPage = parseInt(params.page) + 1;
+    history.push({
+      search: queryString.stringify({ ...params, page: newPage }),
     });
   };
   return (
@@ -81,7 +98,22 @@ function Users(props) {
           Buscando usuarios
         </div>
       ) : (
-        <ListUsers users={users} />
+        <>
+          <ListUsers users={users} />
+          <Button onClick={moreData} className="load-more">
+            {!btnLoading ? (
+              btnLoading !== 0 && "Cargar mas usuarios"
+            ) : (
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+            )}
+          </Button>
+        </>
       )}
     </BasicLayout>
   );
