@@ -21,7 +21,7 @@ export default function EditUserForm(props) {
   );
   const [bannerFile, setBannerFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(
-    user?.avatar ? `${API_HOST}/get-avatar?id=${user.id}` : null
+    user?.avatar ? `${API_HOST}/avatar?id=${user.id}` : null
   );
   const [avatarFile, setAvatarFile] = useState(null);
   const [loading, setLoading] = useState(false);

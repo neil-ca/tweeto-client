@@ -27,7 +27,7 @@ function Tweet(props) {
         getUserApi(tweet.userId).then(response => {
             setUserInfo(response)
             setAvatarUrl(
-                response?.avatar ? `${API_HOST}/get-avatar?id=${response.id}` 
+                response?.avatar ? `${API_HOST}/avatar?id=${response.id}` 
                 : AvatarNotFound
             )
         })

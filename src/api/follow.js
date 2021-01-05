@@ -2,7 +2,7 @@ import { API_HOST } from "../utils/constant";
 import { getTokenApi } from "./auth";
 
 export function checkFollowApi(idUser) {
-  const url = `${API_HOST}/consult-relation?id=${idUser}`;
+  const url = `${API_HOST}/relation?id=${idUser}`;
   const params = {
     headers: {
       Authorization: `Bearer ${getTokenApi()}`,
@@ -21,7 +21,7 @@ export function checkFollowApi(idUser) {
 }
 
 export function followUserApi(idUser) {
-  const url = `${API_HOST}/up-relation?id=${idUser}`;
+  const url = `${API_HOST}/follow?id=${idUser}`;
   const params = {
     method: "POST",
     headers: {
@@ -41,7 +41,7 @@ export function followUserApi(idUser) {
 }
 
 export function unFollowUserApi(idUser) {
-  const url = `${API_HOST}/down-relation?id=${idUser}`;
+  const url = `${API_HOST}/unfollow?id=${idUser}`;
   const params = {
     method: "DELETE",
     headers: {
@@ -61,7 +61,7 @@ export function unFollowUserApi(idUser) {
 }
 
 export function getFollowsApi(paramsUrl) {
-  const url = `${API_HOST}/list-users?${paramsUrl}`;
+  const url = `${API_HOST}/list/users?${paramsUrl}`;
 
   const params = {
     headers: {

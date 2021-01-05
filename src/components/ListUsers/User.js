@@ -22,7 +22,7 @@ export default function User(props) {
         className="mr-3"
         src={
           userInfo?.avatar
-            ? `${API_HOST}/get-avatar?id=${user.id}`
+            ? `${API_HOST}/avatar?id=${user.id}`
             : AvatarNoFound
         }
         alt={`${user.name} ${user.surname}`}

@@ -2,7 +2,7 @@ import { API_HOST } from "../utils/constant";
 import { getTokenApi } from "./auth";
 
 export function getUserApi(id) {
-    const url = `${API_HOST}/view-profile?id=${id}`
+    const url = `${API_HOST}/view/profile?id=${id}`
 
     const params = {
         headers: {
@@ -23,7 +23,7 @@ export function getUserApi(id) {
 }
 
 export function uploadBannerApi(file) {
-    const url = `${API_HOST}/up-banner`
+    const url = `${API_HOST}/banner-up`
     const formData = new FormData()
     formData.append("banner", file)
 
@@ -44,7 +44,7 @@ export function uploadBannerApi(file) {
 }
 
 export function uploadAvatarApi(file) {
-    const url = `${API_HOST}/up-avatar`
+    const url = `${API_HOST}/avatar-up`
     const formData = new FormData()
     formData.append("avatar", file)
 
@@ -65,7 +65,7 @@ export function uploadAvatarApi(file) {
 }
 
 export function updateInfoApi(data) {
-    const url = `${API_HOST}/modify-profile`
+    const url = `${API_HOST}/profile`
     const params = {
         method: "PUT",
         headers: {
