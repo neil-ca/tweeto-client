@@ -3,30 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "bootstrap": "^4.5.3",
     "classnames": "^2.2.6",
-    "date-fns": "^2.16.1",
+    "date-fns": "^2.17.0",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
-    "node-sass": "4.14.1",
-    "query-string": "^6.13.8",
+    "next": "10.0.7",
+    "query-string": "^6.14.0",
     "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.1",
-    "react-dropzone": "^11.2.4",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
-    "react-toastify": "^6.2.0",
-    "use-debounce": "3.4.3"
+    "react-dropzone": "^11.3.1",
+    "react-toastify": "^7.0.3",
+    "sass": "^1.32.8",
+    "swr": "^0.4.2",
+    "use-debounce": "5.2.0"
   },
   "scripts": {
+    "dev": "next dev",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "next build"
   },
   "eslintConfig": {
     "extends": "react-app"
