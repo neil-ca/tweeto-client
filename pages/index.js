@@ -1,10 +1,11 @@
-
 import Link from 'next/link'
-export default function Home(props) {
+import styles from '../styles/layout.module.scss'
+
+export default function Home() {
   return (
-    <div>
-      <h1>Hello! my name is Neil and this is the home</h1>
-      <Link href="login"><a>Login</a></Link>
-    </div>
+    <header className={styles.container}>
+      <Link href="/login"><a>Login</a></Link>
+      <Link href="/register"><a>Register</a></Link>
+    </header> 
   )
 }

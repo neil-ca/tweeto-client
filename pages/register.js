@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Login() {
     return (<>
         <header className={styles.container}>
-            <Link href="/register"><a>Register</a></Link>
+            <Link href="/login"><a>Login</a></Link>
             <Link href="/"><a>Home</a></Link>
         </header>
         <Form /></>
