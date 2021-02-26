@@ -6,7 +6,7 @@ export default function Login() {
     return (<>
         <header className={styles.container}>
             <Link href="/register"><a>Register</a></Link>
-            <Link href="/"><a>Home</a></Link>
+            <Link href="/"><a>Lobby</a></Link>
         </header>
         <Form /></>
     )
