@@ -20,7 +20,7 @@ export default function index() {
         <Link href="/login"><a>Login</a></Link>
         <Link href="/register"><a>Register</a></Link>
       </header>
-      <p>Counter: {count}</p>
+      <h1>Counter: {count}</h1>
       <button onClick={handleIncrease}>Increase</button>
       <button onClick={handleIncrease15}>Increase By 15</button>
       <p></p>

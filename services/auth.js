@@ -16,3 +16,12 @@ export function signIn(data) {
         return err
     })
 }
+// export function isExpired(token) {
+//     const { exp } = jwt_decode(token)
+//     const expire = exp * 1000
+//     const timeout = expire - Date.now()
+//     if (timeout < 0) {
+//         return true
+//     }
+//     return false
+// }
