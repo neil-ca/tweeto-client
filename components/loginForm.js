@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { signIn } from '../services/auth'
 import { useRouter } from 'next/router'
 import Cookie from 'js-cookie'
-import { isEmailValid } from '../utils/validations'
-import styles from '../styles/login.module.scss'
+import { isEmailValid } from '../services/validations'
+import styles from '../styles/auth.module.scss'
 
 export default function loginForm() {
     const [email, setEmail] = useState('')
@@ -17,7 +17,7 @@ export default function loginForm() {
                 if (response.message) {
                     alert(response.message)
                 } else {
-                    console.log(response);
+                    // console.log(response);
                     Cookie.set('token', response.token, {expires: 1})
                     router.push('/home')
                 }

@@ -1,11 +1,16 @@
 .container {
     width: 100%;
+    min-height: 9vh;
     display: flex;
     // flex-direction: column;
+
     justify-content: flex-end;
+    align-items: center;
+    background-color: crimson;
     a {
         color: #71c9f8; 
         text-decoration: none;
         padding: 0 1.5rem;
+        font-weight: bold;
     }
 }

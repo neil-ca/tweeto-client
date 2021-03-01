@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/layout.module.scss'
+import styles from '../styles/nav.module.scss'
 import { useCount, useDispatchCount } from '../context/Counter'
 
 export default function index() {
@@ -22,7 +22,7 @@ export default function index() {
       </header>
       <h1>Counter: {count}</h1>
       <button onClick={handleIncrease}>Increase</button>
-      <button onClick={handleIncrease15}>Increase By 15</button>
+      <button onClick={handleIncrease15}>Increasessddddss By 15</button>
       <p></p>
     </>
   )

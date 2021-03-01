@@ -1,5 +1,5 @@
-import Form from '../components/loginForm'
-import styles from '../styles/layout.module.scss'
+import Form from '../components/registerForm'
+import styles from '../styles/nav.module.scss'
 import Link from 'next/link'
 
 export default function Register() {

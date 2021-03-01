@@ -1,0 +1,20 @@
+.container {
+    display: grid;
+    border: 1px solid white;
+}
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid white;
+}
+.list {
+    color: white;
+    // list-style-type: none;
+    border-bottom: 1px solid white;
+}
+.tweets {
+    justify-self: center;
+}
