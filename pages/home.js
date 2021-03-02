@@ -1,45 +1,31 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from "next/router"
-import Cookie from 'js-cookie'
 import Link from 'next/link'
 import styles from '../styles/home.module.scss'
+import { decodeT, getUser } from '../services/user'
+import Cookie from 'js-cookie'
 
-export default function Home({ tweets }) {
+export default function Home() {
+    const [profile, setProfile] = useState([])
     const router = useRouter()
     const token = Cookie.get('token')
     useEffect(() => {
-        if (!token) {
-            router.push('/login')
-        }
+        let id = decodeT(token)._id
+        getUser(id, token).then(response => {
+            setProfile(response)
+        })
     }, [])
-
+    // console.log(token);
     const logoutUser = (e) => {
         Cookie.remove('token')
         router.push('/')
     }
-    if (tweets == null || tweets == '') {
-        return (<>
-        <h1>No tweets</h1>
-        <button type="submit" onClick={logoutUser}>logout</button>
-        </>)
-    }
+
     return (
-        <>
-            <header className={styles.nav}>
-                <button type="submit" onClick={logoutUser}>logout</button>
-                <Link href="/profile/(id)"><a>profile</a></Link>
-            </header>
-           <div className={styles.container}>
-               
-                <div className={styles.tweets}>
-                    {tweets.map((tweet) => (
-                        <div>
-                        <h1>{tweet.Tweet.message}</h1>
-                        <h1>{tweet.Tweet.date}</h1>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </>
+        <div className={styles.container}>
+            <h1>{profile.name} {profile.surname}</h1>
+
+            <button type="submit" onClick={logoutUser}>logout</button>
+        </div>
     )
 }

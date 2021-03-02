@@ -61,3 +61,9 @@ export function updateProfile(data, token) {
     return fetch(url, params).then(response => { return response })
         .catch(err => { return err })
 }
+export function decodeT(token) {
+    // Object
+    let str = JSON.parse(atob(token.split('.')[1]))
+    // string -> let str2 = atob(token.split('.')[1])
+    return str
+}

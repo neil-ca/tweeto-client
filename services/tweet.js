@@ -29,7 +29,7 @@ export function getUserTweets(idUser, page, token) {
     }).catch((err) => { return err })
 }
 export function getTweetsFollowers(page = 1, token) {
-    const url = `${HOST}/tweets/followers?page=${page}`
+    const url = `${HOST}/tweetsFollowers?page=${page}`
     const params = {
         headers: {
             'Content-Type': 'application/json',
