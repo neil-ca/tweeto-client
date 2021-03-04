@@ -1,9 +1,53 @@
-.container {
+$color-primary: #71c9f8;
+$color-secondary: #15212b;
+.container {  
+    background-color: hsla(46, 100%, 51%, 0.171);
+    display: grid;
+    grid-template-columns: 16vw 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.menu {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    margin-left: 3px;
+    color: black;
+    font-family: 'Trebuchet MS';
+}
+.userProfile {
+    padding: 2em;
+    text-align: center;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    color: $color-secondary;
+    height: min-content;
+    h1 {
+        color: white;
+    }
+}
+.profile {
+    border-radius: 50px;
+    // margin: 0 auto;
+}
+.users {
+    // margin: 3em;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .meet {
+        color: $color-primary;
+    }
+}
+.user {
+    width: min-content;
     padding: 1em;
-    color: white;
-    text-align: end;
-   .profile {
-       border-radius: 50px;
-    //    margin: 0 auto;
-   }
+    font-family: monospace;
+    h1 {
+        font-size: 13.5px;
+        color: black;
+        cursor: pointer;
+    }
+
 }

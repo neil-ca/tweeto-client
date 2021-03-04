@@ -6,34 +6,37 @@ import styles from '../styles/home.module.scss'
 import { decodeT, getUser } from '../services/user'
 import Cookie from 'js-cookie'
 import Users from '../components/users'
+import Menu from '../components/menu'
 
 export default function Home() {
     const [profile, setProfile] = useState([])
     const router = useRouter()
     const token = Cookie.get('token')
     useEffect(() => {
-        let id = decodeT(token)._id
-        getUser(id, token).then(response => {
-            console.log(response);
-            setProfile(response)
-        }).catch((err) => {
-            <h1>{err}</h1>
-        })
+        if (token) {
+            let id = decodeT(token)._id
+            getUser(id, token).then(response => {
+                // console.log(response);
+                setProfile(response)
+            }).catch((err) => {
+                <h1>{err}</h1>
+            })
+        } else {
+            router.push('/login')
+        }
     }, [])
     // console.log(token);
-    const logoutUser = (e) => {
-        Cookie.remove('token')
-        router.push('/')
-    }
-
-    return (<>
+    return (
         <div className={styles.container}>
-            <Image src='/profile.png' width="100" height="100" className={styles.profile}/>
-            <h1>{profile.name} {profile.surname}</h1> 
-            <h2>{profile.email} <br/>{profile.siteweb}</h2>
-            <h4>{profile.location} {profile.dateofbirth}</h4>
-            <button type="submit" onClick={logoutUser}>logout</button> 
+            <Menu className={styles.menu} />
+            <div className={styles.userProfile}>
+                <Image src='/profile.png' width="100" height="100" className={styles.profile} />
+                <h1>{profile.name} {profile.surname}</h1>
+                <h4>{profile.siteweb}</h4>
+                <h4>{profile.biography}</h4>
+                <h5>{profile.location}</h5>
+            </div>
+            <Users />
         </div>
-        <Users/>
-    </>)
+    )
 }
