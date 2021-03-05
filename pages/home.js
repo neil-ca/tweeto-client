@@ -16,7 +16,6 @@ export default function Home() {
         if (token) {
             let id = decodeT(token)._id
             getUser(id, token).then(response => {
-                // console.log(response);
                 setProfile(response)
             }).catch((err) => {
                 <h1>{err}</h1>

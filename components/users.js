@@ -9,15 +9,11 @@ import Link from 'next/link'
 
 export default function Users() {
     const [users, setUsers] = useState([])
-    const [user, setUser]= useState()
     // const router = useRouter()
     const token = Cookie.get('token')
     useEffect(() => {
         getUsers(token).then(response => {
             setUsers(response)
-            console.log(response)
-            let idUser = response.id
-            console.log(idUser);
         }).catch(err => {
             <h1>{err}</h1>
         })
