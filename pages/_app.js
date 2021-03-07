@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { CounterProvider } from '../context/Counter';
+import { AuthProvider } from '../context/Auth'
 import '../styles/global.scss'
 
 export default function App({ Component, pageProps }) {
@@ -8,20 +8,9 @@ export default function App({ Component, pageProps }) {
             <link rel="icon" href="/favicon.ico" />
             <title>Tweeto ✌️</title>
         </Head>
-        <CounterProvider>
+        <AuthProvider>
             <Component {...pageProps} />
-        </CounterProvider>
+        </AuthProvider>
     </>
     )
 }
-// class MyApp extends App {
-//     render() {
-//         const { Component, pageProps } = this.props
-//         return (
-//             <CounterProvider>
-//                 <Component {...pageProps}/>
-//             </CounterProvider>
-//         )
-//     }
-// }
-// export default MyApp

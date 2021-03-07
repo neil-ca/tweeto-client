@@ -23,8 +23,8 @@ export default function Users() {
             { users != null ?
                 <div className={styles.users}>
                     <h1 className={styles.meet}>Meet new people</h1>
-                    {users.map((user) => (<>
-                        <div className={styles.user}>
+                    {users.map((user, index) => (<>
+                        <div className={styles.user} key={index}>
                             <h1><AiOutlineUser/><br/>{user.name} {user.surname}</h1>
                             <Link href={`/profile/${user.id}`}><a>view</a></Link>
                         </div>

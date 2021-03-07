@@ -1,25 +1,28 @@
 import Link from 'next/link';
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { signIn } from '../services/auth'
 import { useRouter } from 'next/router'
-import Cookie from 'js-cookie'
+// import Cookie from 'js-cookie'
 import { isEmailValid } from '../services/validations'
+import {useAuth, useDispatchAuth } from '../context/Auth'
 import styles from '../styles/auth.module.scss'
 
 export default function loginForm() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const router = useRouter()
+    const dispatch = useDispatchAuth()
     const handleSubmit = (e) => {
         e.preventDefault()
         if (isEmailValid(email)) {
-            signIn({email, password}).then(response => {
+            signIn({ email, password }).then(response => {
+                dispatch({
+                    type: "LOGIN",
+                    payload: response.token
+                })
+                router.push('/home')
                 if (response.message) {
                     alert(response.message)
-                } else {
-                    // console.log(response);
-                    Cookie.set('token', response.token, {expires: 1})
-                    router.push('/home')
                 }
             }).catch(() => {
                 alert('error server')
