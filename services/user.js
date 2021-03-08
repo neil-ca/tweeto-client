@@ -65,5 +65,6 @@ export function decodeT(token) {
     // Object
     let str = JSON.parse(atob(token.split('.')[1]))
     // string -> let str2 = atob(token.split('.')[1])
+    // let str = jwt_decode(token)
     return str
 }

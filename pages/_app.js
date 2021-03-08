@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
             <title>Tweeto ✌️</title>
         </Head>
         <AuthProvider>
-            <Component {...pageProps} />
+            <Component {...pageProps} /> 
         </AuthProvider>
     </>
     )

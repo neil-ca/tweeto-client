@@ -7,12 +7,10 @@ import Cookie from 'js-cookie'
 import Link from 'next/link'
 import styles from '../styles/home.module.scss'
 import { decodeT } from '../services/user'
+import { useDispatchAuth } from '../context/Auth'
 export default function Menu() {
     const router = useRouter()
-    const logoutUser = (e) => {
-        Cookie.remove('token')
-        router.push('/')
-    }
+    const dispatch = useDispatchAuth()
     const token = Cookie.get('token')
     let id = decodeT(token)._id
     return (
@@ -21,7 +19,6 @@ export default function Menu() {
             <h3><BsPencilSquare/> write a tweet</h3>
             <Link href={`/profile/${id}`}><a><CgProfile/> my profile </a></Link>
             <h3><FaUserFriends/> meet people</h3>
-            <button onClick={logoutUser}>logout</button>
         </div>
     )
 }

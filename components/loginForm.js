@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { useContext, useState } from 'react'
-import { signIn } from '../services/auth'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useDispatchAuth } from '../context/Auth';
+import { signIn } from '../services/auth';
 // import Cookie from 'js-cookie'
-import { isEmailValid } from '../services/validations'
-import {useAuth, useDispatchAuth } from '../context/Auth'
-import styles from '../styles/auth.module.scss'
+import { isEmailValid } from '../services/validations';
+import styles from '../styles/auth.module.scss';
 
 export default function loginForm() {
     const [email, setEmail] = useState('')

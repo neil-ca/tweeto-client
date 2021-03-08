@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Cookie from 'js-cookie'
 import { getUser } from '../../services/user'
 import { AiOutlineTwitter, AiOutlineUserAdd } from 'react-icons/ai'
-// import { GrUpdate } from 'react-icons/gr'
 import styles from '../../styles/profile.module.scss'
 import { checkFollow, followUser, unfollowUser } from '../../services/follow'
 import { useGetId } from '../../services/useGetId'
@@ -28,7 +27,6 @@ export default function Profile() {
         } else {
             router.push('/login')
         }
-
     }, [])
     return (<>
         <div className={styles.nav}>
