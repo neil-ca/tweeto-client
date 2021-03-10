@@ -23,7 +23,7 @@ export default function Nav() {
             <div className={styles.navHome}>
                 <Link href='/home' className={styles.icon}><a>Tweeto <AiOutlineTwitter /></a></Link>
                 <div className={styles.profile}>
-                <Link href={`/profile${id}`}><a>{profile.name} {profile.surname}</a></Link>
+                <Link href={`/profile/${id}`}><a>{profile.name} {profile.surname}</a></Link>
                 <button onClick={() => {
                     dispatch({
                         type: 'LOGOUT'

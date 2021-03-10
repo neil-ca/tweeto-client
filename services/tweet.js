@@ -1,18 +1,21 @@
 const HOST = 'http://localhost:8080'
 
 export function addTweet(message, token) {
+    const data = {
+        message,
+    }
     return fetch(`${HOST}/tweet`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             Authorization: `$Bearer ${token}`,
         },
-        body: JSON.stringify(message),
+        body: JSON.stringify(data),
     }).then((response) => {
-        if (response.status >= 200 && response < 300) {
+        if (response.ok) {
             return { code: response.status, message: 'Tweet created' }
-        }
-        return { code: response.status, message: 'something wrong, try again' }
+        } else 
+        return { code: 500, message: 'something wrong, try again' }
     }).catch((err) => { return err })
 }
 
@@ -25,7 +28,7 @@ export function getUserTweets(idUser, page, token) {
         },
     }
     return fetch(url, params).then((response) => {
-        return response.json
+        return response.json()
     }).catch((err) => { return err })
 }
 export function getTweetsFollowers(page = 1, token) {
