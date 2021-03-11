@@ -21,12 +21,12 @@ export default function Users() {
     return (
         <>        
             { users != null ?
-                <div className={styles.users}>
+                <div className={styles.users} key={users}>
                     <h1 className={styles.meet}>Meet new people</h1>
                     {users.map((user, index) => (<>
                         <div className={styles.user} key={index}>
-                            <h1><AiOutlineUser/><br/>{user.name} {user.surname}</h1>
-                            <Link href={`/profile/${user.id}`}><a>view</a></Link>
+                            <h1 key={user.name}><AiOutlineUser/><br/>{user.name} {user.surname}</h1>
+                            <Link href={`/profile/${user.id}`} key={user.id}><a>view</a></Link>
                         </div>
                     </>))}
                 </div>

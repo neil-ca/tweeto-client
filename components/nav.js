@@ -7,12 +7,10 @@ import { useDispatchAuth } from '../context/Auth'
 import { getUser } from '../services/user'
 import styles from '../styles/nav.module.scss'
 
-export default function Nav() {
+export default function Nav({id, token}) {
     const router = useRouter()
     const dispatch = useDispatchAuth()
     const [profile, setProfile] = useState('')
-    const token = Cookie.get('token')
-    const id = Cookie.get('id')
     useEffect(() => {
         getUser(id, token).then(res => {
             setProfile(res)
