@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useDispatchAuth } from '../context/Auth';
 import { signIn } from '../services/auth';
-// import Cookie from 'js-cookie'
 import { isEmailValid } from '../services/validations';
 import styles from '../styles/auth.module.scss';
 

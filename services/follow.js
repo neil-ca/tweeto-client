@@ -39,8 +39,8 @@ export function unfollowUser(idUser, token) {
     }).then((result) => {return result})
     .catch((err) => {return err})
 }
-export function getUsers(token) {
-    const url = `${HOST}/list/users?page=1&type=new`
+export function getUsers(token, type) {
+    const url = `${HOST}/list/users?page=1&type=${type}`
     const params = {
         headers: {
             Authorization: `Bearer ${token}`

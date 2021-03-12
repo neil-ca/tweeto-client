@@ -1,19 +1,18 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Cookie from 'js-cookie'
 import { getUser } from '../../services/user'
 import { AiOutlineTwitter, AiOutlineUserAdd } from 'react-icons/ai'
 import styles from '../../styles/profile.module.scss'
 import { checkFollow, followUser, unfollowUser } from '../../services/follow'
-import { useGetId } from '../../services/useGetId'
+import Cookie from 'js-cookie'
 
 export default function Profile() {
     const [profile, setProfile] = useState()
-    const [follow, setFollow] = useState()
     const router = useRouter()
     const id = router.query.id
     const token = Cookie.get('token')
+    // const id = Cookie.get('id')
     const handle = () => {
         unfollowUser(id, token)
     }
@@ -40,7 +39,6 @@ export default function Profile() {
                         <h2>{profile.biography}</h2>
                         <h3>{profile.email} {profile.location}</h3>
                         <h4>{profile.dateofbirth}</h4>
-                        <h5>{profile.id}</h5>
                         <button onClick={handle}>unfollow<AiOutlineUserAdd /></button>
                     </div>
             }

@@ -3,17 +3,19 @@ $color-secondary: #15212b;
 
 .container {
     display: grid;
-    grid-template-columns: 15vw 1fr;
+
+    background-color: rgba(56, 0, 0, 0.884);
 }
 .ctn_tweets {
     margin: 80px;
-    grid-column: 2/3;
     margin-left: 0;
     text-align: center;
     // justify-self: start;
 }
 .create_tweet {
-    // display: flex;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
     textarea {
         resize: none; 
     }
@@ -33,13 +35,22 @@ $color-secondary: #15212b;
     }
 }
 
-// .menu {
-//     grid-column: 1/2;
-//     grid-row: 1/4;
-//     margin-left: 3px;
-//     color: black;
-//     font-family: 'Trebuchet MS';
-// }
+.menu {
+    // margin-top: 60px;
+    font-family: 'Trebuchet MS';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(4, 14, 22, 0.507);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 6vh;
+    width: 100%;
+    a {
+        margin-left: 10px;
+    }
+}
 // .userProfile {
 //     padding: 2em;
 //     text-align: center;

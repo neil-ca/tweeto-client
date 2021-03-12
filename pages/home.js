@@ -1,8 +1,9 @@
 import Cookie from 'js-cookie'
 import { useRouter } from "next/router"
 import { useEffect } from 'react'
+import Menu from '../components/menu'
 import Nav from '../components/nav'
-import Tweets from '../components/tweets'
+import Tweets from '../components/getTweets'
 import styles from '../styles/home.module.scss'
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Nav token={token} id={id}/>
+            <Menu/>
             <Tweets token={token} id={id}/>
         </div>
         
