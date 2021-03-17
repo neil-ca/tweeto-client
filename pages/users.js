@@ -21,12 +21,10 @@ export default function Users() {
             ).catch(err => {
                 <h1>{err}</h1>
             })
+            getUsers(token, 'follow').then(
+                setFriends
+            ).catch(err => <h1>{err}</h1>)
         }
-    }, [])
-    useEffect(() => {
-        getUsers(token, 'follow').then(
-            setFriends
-        ).catch(err => <h1>{err}</h1>)
     }, [])
     return (
         <div>

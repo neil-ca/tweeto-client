@@ -22,6 +22,7 @@ export default function loginForm() {
                 router.push('/home')
                 if (response.message) {
                     alert(response.message)
+                    router.push('/login')
                 }
             }).catch(() => {
                 alert('error server')
