@@ -29,9 +29,27 @@ $color-secondary: #15212b;
     // border: 1px solid white;
     div {
         background-color: rgba(255, 255, 255, 0.699);
-        width: min-content;
+        width: 78%;
         border: 1px solid white;
         text-align: start;
+        margin-left: 3rem;
+        margin-top: 1rem;
+        a {
+            color: rgb(9, 6, 185);
+            margin-left: 1rem;
+            font-weight: 600;
+            font-size: 1.5em;
+            text-decoration: underline;
+        }
+        p {
+            text-align: end;
+            margin-right: 1rem;
+        }
+        h2 {
+            text-align: end;
+            margin: 0;
+            font-size: 18px;
+        }
     }
 }
 

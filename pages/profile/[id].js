@@ -3,18 +3,21 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { getUser } from '../../services/user'
 import { AiOutlineTwitter, AiOutlineUserAdd } from 'react-icons/ai'
+import { RiUserUnfollowFill } from 'react-icons/ri'
 import styles from '../../styles/profile.module.scss'
 import { checkFollow, followUser, unfollowUser } from '../../services/follow'
 import Cookie from 'js-cookie'
+import { getUserTweets } from '../../services/tweet'
 
 export default function Profile() {
     const [profile, setProfile] = useState()
     const [following, setFollowing] = useState(null)
+    const [tweets, setTweets] = useState([])
 
     const router = useRouter()
     const id = router.query.id
     const token = Cookie.get('token')
-    // const id = Cookie.get('id')
+    const myId = Cookie.get('id')
     const ofFollow = () => {
         unfollowUser(id, token).then(() => {
             setFollowing(false)
@@ -32,6 +35,7 @@ export default function Profile() {
             }).catch((err) => {
                 <h1>{err}</h1>
             })
+            getUserTweets(id, 1, token).then(setTweets)
             checkFollow(id, token).then(res => {
                 if (res?.status) {
                     setFollowing(true)
@@ -55,11 +59,23 @@ export default function Profile() {
                         <h2>{profile.biography}</h2>
                         <h3>{profile.email} {profile.location}</h3>
                         <h4>{profile.dateofbirth}</h4>
-                        {following ? 
-                        <button onClick={ofFollow}>Following <AiOutlineUserAdd/></button>
-                        : <button onClick={onFollow}>Follow <AiOutlineUserAdd/></button>}
+                        {myId == id ? ''
+                            : <div>
+                                {following ?
+                                    <button onClick={ofFollow}>Unfollow <RiUserUnfollowFill /></button>
+                                    : <button onClick={onFollow}>Follow <AiOutlineUserAdd /></button>}
+                            </div>
+                        }
+
                     </div>
             }
+            {tweets != null ?
+                <div>
+                    {tweets.map((tweet) => (
+                        <p key={tweet.id}>{tweet.message}</p>
+                    ))}
+                </div> :
+                <h1>No found tweets</h1>}
         </div>
     </>
     )
