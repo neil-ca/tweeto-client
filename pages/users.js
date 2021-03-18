@@ -16,8 +16,10 @@ export default function Users() {
         if (!token) {
             router.push('/login')
         } else {
-            getUsers(token, 'new').then(
-                setNewUsers
+            getUsers(token, 'new').then(res => { 
+                setNewUsers(res)
+                console.log(res)
+            }
             ).catch(err => {
                 <h1>{err}</h1>
             })
@@ -42,8 +44,11 @@ export default function Users() {
             <h1>Your firends</h1>
             <div>
                 {friends != null ?
-                    friends.map(frined => (
-                        <h1>{frined.name}</h1>
+                    friends.map(friend => (
+                        <div>
+                            <h1>{friend.name}</h1>
+                            <Link href={`/profile/${friend.id}`}><a>view</a></Link>
+                        </div>
                     ))
                     : <h1>No friends</h1>}
             </div>
