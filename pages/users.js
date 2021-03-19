@@ -5,6 +5,7 @@ import Cookie from 'js-cookie'
 import { getUsers } from '../services/follow'
 import { AiOutlineUser } from 'react-icons/ai'
 import styles from '../styles/home.module.scss'
+import Nav from '../components/nav'
 
 
 export default function Users() {
@@ -12,6 +13,7 @@ export default function Users() {
     const [friends, setFriends] = useState([])
     const router = useRouter()
     const token = Cookie.get('token')
+    const id = Cookie.get('id')
     useEffect(() => {
         if (!token) {
             router.push('/login')
@@ -29,28 +31,29 @@ export default function Users() {
         }
     }, [])
     return (
-        <div>
+        <div className={styles.users}>
+            <Nav id={id} token={token}/>
             {new_users != null ?
                 <div className={styles.users}>
                     <h1 className={styles.meet}>Meet new people</h1>
                     {new_users.map((user) => (
                         <div className={styles.user} key={user.id}>
-                            <h1><AiOutlineUser />{user.name} {user.surname}</h1>
+                            <h1><AiOutlineUser /> {user.name} {user.surname}</h1>
                             <Link href={`/profile/${user.id}`}><a>view</a></Link>
                         </div>
                     ))}
                 </div>
-                : <h1>No users</h1>}
+                : <h1>No users new found</h1>}
             <h1>Your firends</h1>
             <div>
                 {friends != null ?
                     friends.map(friend => (
-                        <div>
-                            <h1>{friend.name}</h1>
-                            <Link href={`/profile/${friend.id}`}><a>view</a></Link>
+                        <div className={styles.user}>
+                            <Link href={`/profile/${friend.id}`}><a><AiOutlineUser /> {friend.name} {friend.surname}</a></Link>
+                            <h1>{friend.biography}</h1>
                         </div>
                     ))
-                    : <h1>No friends</h1>}
+                    : <h1>No friends found</h1>}
             </div>
         </div>
     )

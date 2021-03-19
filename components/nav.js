@@ -1,4 +1,3 @@
-import Cookie from 'js-cookie'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'

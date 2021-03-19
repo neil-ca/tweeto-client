@@ -2,7 +2,7 @@
     height: 100vh;
     padding: 1em;
     width: 100%;
-    background-color: rgba(199, 128, 88, 0.664);
+    // background-color: rgba(199, 128, 88, 0.664);
 }
     
 .nav {
@@ -18,9 +18,11 @@
 }
 .info {
     text-align: center;
-    background-color: rgba(234, 236, 119, 0.123);
+    background-color: rgba(93, 167, 201, 0.288);
     padding: 2em;
-    height: 60vh;
+    height: 50vh;
+    border-radius: 25px;
+
     h1 {
         color: rgba(248, 247, 246, 0.774);
         font-weight: 500;

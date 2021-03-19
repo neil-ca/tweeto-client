@@ -4,10 +4,11 @@ import Link from 'next/link'
 import { getUser } from '../../services/user'
 import { AiOutlineTwitter, AiOutlineUserAdd } from 'react-icons/ai'
 import { RiUserUnfollowFill } from 'react-icons/ri'
-import styles from '../../styles/profile.module.scss'
 import { checkFollow, followUser, unfollowUser } from '../../services/follow'
-import Cookie from 'js-cookie'
 import { getUserTweets } from '../../services/tweet'
+import Cookie from 'js-cookie'
+import styles from '../../styles/profile.module.scss'
+import styles2 from '../../styles/home.module.scss'
 
 export default function Profile() {
     const [profile, setProfile] = useState()
@@ -66,16 +67,16 @@ export default function Profile() {
                                     : <button onClick={onFollow}>Follow <AiOutlineUserAdd /></button>}
                             </div>
                         }
-
                     </div>
             }
             {tweets != null ?
-                <div>
-                    {tweets.map((tweet) => (
+                <section className={styles2.list_tweets}>
+                    {tweets.map((tweet) => (<div>
                         <p key={tweet.id}>{tweet.message}</p>
-                    ))}
-                </div> :
-                <h1>No found tweets</h1>}
+                        <h2>{tweet.date}</h2>
+                    </div>))}
+                </section>
+                : <h1>No found tweets</h1>}
         </div>
     </>
     )

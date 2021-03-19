@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { useEffect } from 'react'
 import Menu from '../components/menu'
 import Nav from '../components/nav'
-import Tweets from '../components/getTweets'
+import Tweets from '../components/Tweets'
 import styles from '../styles/home.module.scss'
 
 export default function Home() {

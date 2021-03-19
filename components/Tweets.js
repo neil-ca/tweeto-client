@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { getUsers } from "../services/follow"
 import { addTweet, getTweetsFollowers } from "../services/tweet"
 import styles from '../styles/home.module.scss'
-import { AiOutlineTwitter } from "react-icons/ai"
 
 export default function Tweets({ token }) {
     const [message, setMessage] = useState('')
@@ -41,7 +40,6 @@ export default function Tweets({ token }) {
                             {infoUser.map((user, index) => (
                                 <Link key={index} href={`/profile/${user.id}`}><a>{tweet.userRelationId == user.id && user.name + ' ' +  user.surname}</a></Link>
                             ))}
-                            <AiOutlineTwitter/>
                             <p>{tweet.Tweet.message}</p>
                             <h2>{tweet.Tweet.date}</h2>
                         </div>

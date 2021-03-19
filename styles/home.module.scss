@@ -2,12 +2,10 @@ $color-primary: #71c9f8;
 $color-secondary: #15212b;
 
 .container {
-    display: grid;
-
-    // background-color: rgba(56, 0, 0, 0.884);
+    padding: 1rem;
 }
 .ctn_tweets {
-    margin: 80px;
+    margin: 60px;
     margin-left: 0;
     text-align: center;
     // justify-self: start;
@@ -29,11 +27,12 @@ $color-secondary: #15212b;
     // border: 1px solid white;
     div {
         background-color: rgba(255, 255, 255, 0.699);
-        width: 78%;
+        width: 100%;
         border: 1px solid white;
         text-align: start;
-        margin-left: 3rem;
         margin-top: 1rem;
+        border: 3px solid white;
+        border-radius: 12px;
         a {
             color: rgb(9, 6, 185);
             margin-left: 1rem;
@@ -69,41 +68,19 @@ $color-secondary: #15212b;
         margin-left: 10px;
     }
 }
-// .userProfile {
-//     padding: 2em;
-//     text-align: center;
-//     grid-column: 2/3;
-//     grid-row: 1/2;
-//     color: $color-secondary;
-//     height: min-content;
-//     h1 {
-//         color: white;
-//     }
-// }
-// .profile {
-//     border-radius: 50px;
-//     // margin: 0 auto;
-// }
-// .users {
-//     // margin: 3em;
-//     grid-column: 3/4;
-//     grid-row: 1/2;
-//     text-align: center;
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     .meet {
-//         color: $color-primary;
-//     }
-// }
-// .user {
-//     width: min-content;
-//     padding: 1em;
-//     font-family: monospace;
-//     h1 {
-//         font-size: 13.5px;
-//         color: black;
-//         cursor: pointer;
-//     }
-
-// }
+.users {
+    margin-top: 5rem;
+    margin-left: 1rem;    
+    h1 {
+        color: white;
+    }
+    
+    .user {
+        margin-top: 1rem;
+        a {
+            font-size: 18px;
+            text-decoration: underline;
+            margin-left: 1rem;
+        }
+    }
+}
