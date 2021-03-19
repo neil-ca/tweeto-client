@@ -39,7 +39,7 @@ export default function loginForm() {
                 <input name="email" type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="email" />
                 <label htmlFor="password">password</label>
                 <input name="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} placeholder="password" />
-                <button type="submit">Login</button>
+                <button type="submit" className={styles.btn}>Login</button>
                 <p>Not registered? <Link href="/register"><a>Create an account</a></Link> </p>
             </form>
         </div>

@@ -1,14 +1,15 @@
+import Cookie from 'js-cookie'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { getUser } from '../../services/user'
-import { AiOutlineTwitter, AiOutlineUserAdd } from 'react-icons/ai'
+import { useEffect, useState } from 'react'
+import { AiOutlineUserAdd } from 'react-icons/ai'
 import { RiUserUnfollowFill } from 'react-icons/ri'
+import Menu from '../../components/menu'
+import Nav from '../../components/nav'
 import { checkFollow, followUser, unfollowUser } from '../../services/follow'
 import { getUserTweets } from '../../services/tweet'
-import Cookie from 'js-cookie'
-import styles from '../../styles/profile.module.scss'
+import { getUser } from '../../services/user'
 import styles2 from '../../styles/home.module.scss'
+import styles from '../../styles/profile.module.scss'
 
 export default function Profile() {
     const [profile, setProfile] = useState()
@@ -49,16 +50,15 @@ export default function Profile() {
         }
     }, [following])
     return (<>
-        <div className={styles.nav}>
-            <Link href="/home"><a>Tweeto <AiOutlineTwitter /></a></Link>
-        </div>
+        <Nav id={myId} token={token}/>
         <div className={styles.container}>
             {
                 (profile == null) ? <h3>oh oh!</h3> :
                     <div className={styles.info}>
                         <h1>{profile.name} {profile.surname}</h1>
                         <h2>{profile.biography}</h2>
-                        <h3>{profile.email} {profile.location}</h3>
+                        <h3>{profile.email}</h3>
+                        <h3>{profile.location}</h3>
                         <h4>{profile.dateofbirth}</h4>
                         {myId == id ? ''
                             : <div>
@@ -77,7 +77,9 @@ export default function Profile() {
                     </div>))}
                 </section>
                 : <h1>No found tweets</h1>}
+
         </div>
+        <Menu/>
     </>
     )
 }

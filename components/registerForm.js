@@ -38,7 +38,7 @@ export default function registerForm() {
                 <input name="name" type="text" required value={name} onChange={e => setName(e.target.value)} placeholder="name" />
                 <label htmlFor="surname">last name</label>
                 <input name="surname" type="text" required value={surname} onChange={e => setSurname(e.target.value)} placeholder="last name" />
-                <button type="submit" >Register</button>
+                <button type="submit" className={styles.btn}>Register</button>
                 <p> <Link href="/login"><a>You have an account</a></Link></p>
             </form>
         </div>

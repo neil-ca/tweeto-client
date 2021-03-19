@@ -17,8 +17,8 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Nav token={token} id={id}/>
-            <Menu/>
             <Tweets token={token}/>
+            <Menu/>
         </div>
         
     )

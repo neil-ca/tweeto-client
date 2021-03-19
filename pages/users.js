@@ -20,7 +20,7 @@ export default function Users() {
         } else {
             getUsers(token, 'new').then(res => { 
                 setNewUsers(res)
-                console.log(res)
+                // console.log(res)
             }
             ).catch(err => {
                 <h1>{err}</h1>
