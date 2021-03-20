@@ -1,4 +1,5 @@
-const HOST = 'http://localhost:8080'
+const HOST = 'https://tweeto1.herokuapp.com'
+const LOCALHOST = 'http://localhost:8080'
 export function signIn(data) {
     return fetch(`${HOST}/login`, {
         method: 'POST',

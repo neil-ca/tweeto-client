@@ -44,7 +44,7 @@ export default function Update() {
                 <input type="text" name="biography" value={biography} onChange={e => setBiography(e.target.value)} placeholder="biography" />
                 <label htmlFor="location">location</label>
                 <input type="text" name="location" value={location} onChange={e => setLocation(e.target.value)} placeholder="location" />
-                <label htmlFor="dateofbirth">date of birth</label>
+                <label htmlFor="dateofbirth">date of birth yyyy-mm-dd</label>
                 <input type="text" name="dateofbirth" value={birth} onChange={e => setBirth(e.target.value)} placeholder="yyyy-mm-dd" />
                 <button type="submit" className={styles.btn}>Update</button>
             </form>

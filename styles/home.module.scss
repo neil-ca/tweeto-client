@@ -70,17 +70,17 @@ $color-secondary: #15212b;
 }
 .users {
     margin-top: 5rem;
-    margin-left: 1rem;    
     h1 {
         color: white;
+        margin-left: 1rem;    
     }
     
     .user {
-        margin-top: 1rem;
+        margin: 0 1rem;
+        border: 1px solid white;
+        text-align: center;
         a {
-            font-size: 18px;
-            text-decoration: underline;
-            margin-left: 1rem;
+            font-size: 20px;
         }
     }
 }
